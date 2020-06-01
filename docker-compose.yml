@@ -1,0 +1,6 @@
+version: '3'
+services:
+  customermanagement:
+    build: .
+    container_name: customermanagement
+
