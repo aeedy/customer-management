@@ -109,54 +109,70 @@ namespace CustomerManagement.ConsoleApp
 
         static void RenderAddCustomer()
         {
-            var customer = new Customer();
-            Console.WriteLine("===== Add new Customer =====");
-            Console.Write("Enter Id: ");
-            customer.Id = int.Parse(Console.ReadLine());
-
-            Console.Write("Enter Firstname: ");
-            customer.FirstName = Console.ReadLine();
-
-            Console.Write("Enter Lastname: ");
-            customer.LastName = Console.ReadLine();
-
-            Console.Write("Enter Gender ex. Male or Female: ");
-            customer.Gender = Console.ReadLine();
-
-            Console.Write("Enter Birthdate ex. 2020-05-31: ");
-            var birthdate = Console.ReadLine();
-            customer.BirthDate = birthdate.ToString().StringToDateTime();
-
-            customer.Age = customer.BirthDate.CalculateAge();
-
-            if (customerService.AddCustomer(customer))
+            try
             {
-                Console.WriteLine("Customer was add.");
-            }
-            else
-            {
-                Console.WriteLine("Customer was not add.");
-            }
+                var customer = new Customer();
+                Console.WriteLine("===== Add new Customer =====");
+                Console.Write("Enter Id: ");
+                customer.Id = int.Parse(Console.ReadLine());
 
-            RenderFillMenu();
+                Console.Write("Enter Firstname: ");
+                customer.FirstName = Console.ReadLine();
+
+                Console.Write("Enter Lastname: ");
+                customer.LastName = Console.ReadLine();
+
+                Console.Write("Enter Gender ex. Male or Female: ");
+                customer.Gender = Console.ReadLine();
+
+                Console.Write("Enter Birthdate ex. 2020-05-31: ");
+                var birthdate = Console.ReadLine();
+                customer.BirthDate = birthdate.ToString().StringToDateTime();
+
+                customer.Age = customer.BirthDate.CalculateAge();
+
+                if (customerService.AddCustomer(customer))
+                {
+                    Console.WriteLine("Customer was add.");
+                }
+                else
+                {
+                    Console.WriteLine("Customer was not add.");
+                }
+
+                RenderFillMenu();
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine("Cannot add -incorrect input format.");
+                RenderFillMenu();
+            }
         }
 
         static void RenderDeleteCustomer()
         {
-            Console.WriteLine("===== Delete Customer =====");
-            Console.Write("Enter Id: ");
-            var customerId = int.Parse(Console.ReadLine());
-
-            if (customerService.DeleteCustomer(customerId))
+            try
             {
-                Console.WriteLine("Customer was delete.");
-            }
-            else
-            {
-                Console.WriteLine("Customer was not delete.");
-            }
+                Console.WriteLine("===== Delete Customer =====");
+                Console.Write("Enter Id: ");
+                var customerId = int.Parse(Console.ReadLine());
 
-            RenderFillMenu();
+                if (customerService.DeleteCustomer(customerId))
+                {
+                    Console.WriteLine("Customer was delete.");
+                }
+                else
+                {
+                    Console.WriteLine("Customer was not delete.");
+                }
+
+                RenderFillMenu();
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine("Cannot deltete -incorrect input format.");
+                RenderFillMenu();
+            }
         }
 
         static void RenderFillMenu()
