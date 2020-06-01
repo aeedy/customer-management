@@ -26,16 +26,17 @@ namespace CustomerManagement.Services
 
         public Report ShowCustomerReport()
         {
-            List<Customer> customers = new List<Customer>();
-            customers = GetCustomers().ToList();
+            List<Customer> customers = GetCustomers().ToList();
             List<double> averageAgeGroupByGenders =  GetListCustomerAverageAgeGroupByGender(customers);
             List<int> customerGroupByGenders = GetListCustomerGroupByGender(customers);
+            double averageAge = GetListCustomerAverageAge(customers);
             int total = GetTotalCustomer(customers);
             return new Report()
             {
                 Customers = customers,
                 AverageDatas = new AverageData()
                 {
+                    AverageAge = averageAge,
                     AverageAgeMale = averageAgeGroupByGenders[0],
                     AverageAgeFemale = averageAgeGroupByGenders[1],
                     Total = total,
@@ -49,6 +50,12 @@ namespace CustomerManagement.Services
         {
             return _customerRepository.Get();
         }
+
+        private double GetListCustomerAverageAge(List<Customer> customers)
+        {
+            return customers.Average(c => c.Age);
+        }
+
 
         private List<double> GetListCustomerAverageAgeGroupByGender(List<Customer> customers)
         {

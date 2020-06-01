@@ -101,8 +101,8 @@ namespace CustomerManagement.ConsoleApp
             }
 
             Console.WriteLine("====================================================");
-            Console.WriteLine("Summary \t Total: {0} \t Average Male Age: {1} \t Average Femal Age: {2}", report.AverageDatas.Total, report.AverageDatas.AverageAgeMale, report.AverageDatas.AverageAgeFemale);
-            Console.WriteLine("Total Male: {0} \t Total Female: {1}", report.AverageDatas.TotalMale, report.AverageDatas.TotalFemale);
+            Console.WriteLine("Summary \t Average Age : {0} \t Average Male Age: {1} \t Average Femal Age: {2}", report.AverageDatas.AverageAge, report.AverageDatas.AverageAgeMale, report.AverageDatas.AverageAgeFemale);
+            Console.WriteLine("Total: {0} \t Total Male: {1} \t Total Female: {2}", report.AverageDatas.Total, report.AverageDatas.TotalMale, report.AverageDatas.TotalFemale);
 
             RenderFillMenu();
         }

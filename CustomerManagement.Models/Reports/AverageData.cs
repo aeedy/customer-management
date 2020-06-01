@@ -9,6 +9,7 @@ namespace CustomerManagement.Models.Reports
         public int Total { get; set; }
         public int TotalMale { get; set; }
         public int TotalFemale { get; set; }
+        public double AverageAge { get; set; }
         public double AverageAgeMale { get; set; }
         public double AverageAgeFemale { get; set; }
     }

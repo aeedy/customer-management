@@ -86,6 +86,7 @@ namespace CustomerManagement.Services.Tests
             Report report = reportService.ShowCustomerReport();
             Assert.NotNull(report);
             Assert.Equal(4, report.Customers.Count());
+            Assert.Equal(31.25, report.AverageDatas.AverageAge);
             Assert.Equal(35, report.AverageDatas.AverageAgeMale);
             Assert.Equal(27.5, report.AverageDatas.AverageAgeFemale);
             Assert.Equal(4, report.AverageDatas.Total);
