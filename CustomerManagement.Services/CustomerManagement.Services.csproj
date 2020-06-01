@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CustomerManagement.Infrastructures\CustomerManagement.Infrastructures.csproj" />
+    <ProjectReference Include="..\CustomerManagement.Models\CustomerManagement.Models.csproj" />
+    <ProjectReference Include="..\CustomerManagement.Repositories\CustomerManagement.Repositories.csproj" />
+  </ItemGroup>
+
+</Project>
